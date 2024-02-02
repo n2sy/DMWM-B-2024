@@ -10,4 +10,11 @@ export class FirstComponent {
   age: number = 24;
   color: string = 'pink';
   hd: boolean = true;
+
+  clickHandler() {
+    alert("J'ai été cliqué");
+  }
+  traitementDuParent(msg: any) {
+    this.name = msg;
+  }
 }

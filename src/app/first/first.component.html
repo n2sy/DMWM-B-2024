@@ -3,3 +3,14 @@
 <div [hidden]="hd" [style.backgroundColor]="color">
   Exemple de property binding
 </div>
+
+<button (click)="clickHandler()">Click me</button>
+
+<input [(ngModel)]="name" type="text" />
+
+<hr />
+
+<app-child
+  (msgToParent)="traitementDuParent($event)"
+  [prenom]="'Oussama'"
+></app-child>

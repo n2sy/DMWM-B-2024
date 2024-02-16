@@ -1,0 +1,27 @@
+<div
+  [ngStyle]="{
+    backgroundColor: bgColor,
+    color: txtColor,
+    fontSize: txtSize,
+    fontFamily: txtFont
+  }"
+>
+  Exercice NgStyle
+</div>
+
+<label for="">Background Color</label>
+<input [(ngModel)]="bgColor" type="text" class="form-control" />
+
+<label for="">Text Color</label>
+<input [(ngModel)]="txtColor" type="text" class="form-control" />
+
+<label for="">Text Size</label>
+<input #sz (change)="changeSize()" type="number" class="form-control" />
+
+<label for="">Text Police</label>
+<select [(ngModel)]="txtFont" class="form-control">
+  <option value=""></option>
+  <option value="garamond">Garamond</option>
+  <option value="arial">Arial</option>
+  <option value="Phosphate">phosphate</option>
+</select>

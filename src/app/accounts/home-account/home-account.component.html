@@ -1,0 +1,13 @@
+
+<div class="row">
+    <div class="col-6">
+        <app-add-account (sendAcc)="addNewAccount($event)"></app-add-account>
+        
+        @for (acc of tabAccounts; track $index) {
+            <app-item-account [oneAccount]="acc"></app-item-account>
+        
+        }
+
+    </div>
+    
+</div>

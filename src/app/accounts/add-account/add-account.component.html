@@ -1,0 +1,11 @@
+<label for="">Account Name</label>
+<input #inpName type="text" class="form-control" />
+
+
+<label for="">Account Status</label>
+
+<select #inpStatus class="form-control">
+  <option *ngFor="let opt of allOptions" [value]="opt">{{ opt }}</option>
+</select>
+
+<button (click)="sendNewAccountToHome(inpName.value, inpStatus.value)" class="btn btn-primary">Add Account</button>

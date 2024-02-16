@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrl: './manage-servers.component.css',
 })
 export class ManageServersComponent {
+  p = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve('DMWM-B');
+    }, 3000);
+  });
+  selectedStatut = '';
   tabServers = [
     {
       name: 'Development Server',
@@ -32,6 +38,15 @@ export class ManageServersComponent {
       statut: 'stable',
     },
   ];
+
+  addServer() {
+    this.tabServers.push({
+      name: 'NEW SERVER',
+      type: 'medium',
+      date_d: new Date(2023, 3, 5),
+      statut: 'stable',
+    });
+  }
 
   affecterClass(st) {
     return {

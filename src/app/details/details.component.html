@@ -9,7 +9,7 @@
       </div>
       <div class="content">
         <div class="main">
-          <h3 class="name">{{ selCand.prenom }}{{ selCand.nom }}</h3>
+          <h3 class="name">{{ selCand.prenom }} {{ selCand.nom }}</h3>
           <p class="profession">{{ selCand.age }} ans</p>
 
           <p class="text-center">
@@ -53,15 +53,9 @@
       </div>
       <div class="footer">
         <div class="social-links text-center">
-          <a href="https://creative-tim.com" class="facebook"
-            ><i class="fa fa-facebook fa-fw"></i
-          ></a>
-          <a href="https://creative-tim.com" class="google"
-            ><i class="fa fa-google-plus fa-fw"></i
-          ></a>
-          <a href="https://creative-tim.com" class="twitter"
-            ><i class="fa fa-twitter fa-fw"></i
-          ></a>
+          <button (click)="addNewRecrue()" class="btn btn-success">
+            Recruter
+          </button>
         </div>
       </div>
     </div>

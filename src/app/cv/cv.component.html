@@ -1,9 +1,6 @@
 <div class="row">
   <div class="col-5">
-    <app-liste
-      (candToCv)="recupererCand($event)"
-      [tabCands]="tabCandidats"
-    ></app-liste>
+    <app-liste (candToCv)="recupererCand($event)"></app-liste>
   </div>
   <div class="col-7">
     @if (selectedCandidat) {
@@ -14,3 +11,4 @@
     }
   </div>
 </div>
+<app-recruter></app-recruter>

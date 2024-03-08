@@ -1,0 +1,17 @@
+<h3>Interface d'accueil du projet Angular - DMWM-B</h3>
+<hr />
+
+<!-- <button routerLink="skander/cv" [routerLink]="['skander', 'cv', id]" class="btn btn-danger">
+  Go To CV
+</button> -->
+<h4>Navigation côté HTML</h4>
+<button routerLink="cv" class="btn btn-danger">Go To CV</button>
+<a [routerLink]="['servers', 'skander', id]" class="btn btn-info">
+  Go To Servers
+</a>
+<hr />
+<h4>Navigation côté TS</h4>
+<button (click)="goToCv()" class="btn btn-success">Go To CV v2</button>
+<button (click)="goToServers()" class="btn btn-warning">
+  Go To Servers v2
+</button>

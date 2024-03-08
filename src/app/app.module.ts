@@ -5,7 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { AddAccountComponent } from './accounts/add-account/add-account.component';
 import { HomeAccountComponent } from './accounts/home-account/home-account.component';
 import { ItemAccountComponent } from './accounts/item-account/item-account.component';
+import { AccueilComponent } from './accueil/accueil.component';
 import { AppComponent } from './app.component';
+import { DMWM_ROUTING } from './app.routing';
 import { ChildComponent } from './child/child.component';
 import { CustomDirDirective } from './custom-dir.directive';
 import { CvComponent } from './cv/cv.component';
@@ -18,8 +20,9 @@ import { ManageServersComponent } from './manage-servers/manage-servers.componen
 import { MsWordComponent } from './ms-word/ms-word.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { ShortPipe } from './pipes/short.pipe';
-import { FirstService } from './services/first.service';
 import { RecruterComponent } from './recruter/recruter.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { InfosComponent } from './infos/infos.component';
 
 @NgModule({
   declarations: [
@@ -40,8 +43,11 @@ import { RecruterComponent } from './recruter/recruter.component';
     ShortPipe,
     FilterPipe,
     RecruterComponent,
+    AccueilComponent,
+    NavbarComponent,
+    InfosComponent,
   ],
-  imports: [BrowserModule, FormsModule],
+  imports: [BrowserModule, FormsModule, DMWM_ROUTING],
   providers: [],
   bootstrap: [AppComponent],
 })

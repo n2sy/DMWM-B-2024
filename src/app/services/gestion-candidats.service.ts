@@ -6,12 +6,26 @@ import { Candidat } from '../models/candidat';
 })
 export class GestionCandidatsService {
   private allCandidats: Candidat[] = [
-    new Candidat(1, 'Bart', 'Simpson', 23, 'ingénieur', 'bart.jpeg'),
-    new Candidat(2, 'Homer', 'Simpson', 55, 'directeur', 'homer.png'),
-    new Candidat(3, 'Lisa', 'Simpson', 30, 'designer', 'lisa.png'),
+    new Candidat(1, 'Bart', 'Simpson', 23, 'ingénieur'),
+    new Candidat(2, 'Homer', 'Simpson', 55, 'directeur'),
+    new Candidat(3, 'Lisa', 'Simpson', 30, 'designer'),
+    new Candidat(4, 'Nidhal', 'Jelassi', 30, 'designer'),
   ];
 
+  getCandidatById(id) {
+    return this.allCandidats.find((cand) => cand._id == id);
+  }
+
   getAllCandidats() {
+    // this.allCandidats = this.allCandidats.map((cand) => {
+    //   cand.avatar = `https://api.dicebear.com/8.x/lorelei/svg?seed=${cand.prenom}`;
+    //   return cand;
+    // });
+    // return this.allCandidats;
+
+    // this.allCandidats.forEach((cand) => {
+    //   cand.avatar = `https://api.dicebear.com/8.x/lorelei/svg?seed=${cand.prenom}`;
+    // });
     return this.allCandidats;
   }
 

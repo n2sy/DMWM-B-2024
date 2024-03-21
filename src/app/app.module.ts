@@ -23,6 +23,10 @@ import { ShortPipe } from './pipes/short.pipe';
 import { RecruterComponent } from './recruter/recruter.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { InfosComponent } from './infos/infos.component';
+import { NoImagePipe } from './pipes/no-image.pipe';
+import { AddComponent } from './add/add.component';
+import { EditComponent } from './edit/edit.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +50,10 @@ import { InfosComponent } from './infos/infos.component';
     AccueilComponent,
     NavbarComponent,
     InfosComponent,
+    NoImagePipe,
+    AddComponent,
+    EditComponent,
+    NotFoundComponent,
   ],
   imports: [BrowserModule, FormsModule, DMWM_ROUTING],
   providers: [],

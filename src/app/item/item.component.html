@@ -1,4 +1,7 @@
 <li appCustomDir (click)="sendCandToListe()" class="list-group-item">
-  <img src="../../assets/{{ oneCandidat.avatar }}" /> {{ oneCandidat.prenom }}
+  <img
+    src="https://api.dicebear.com/8.x/lorelei/svg?seed={{ oneCandidat.prenom }}"
+  />
+  {{ oneCandidat.prenom }}
   {{ oneCandidat.nom }}
 </li>

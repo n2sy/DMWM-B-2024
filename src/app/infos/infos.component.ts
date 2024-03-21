@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+import { Candidat } from '../models/candidat';
+import { GestionCandidatsService } from '../services/gestion-candidats.service';
 
 @Component({
   selector: 'app-infos',
@@ -7,8 +9,12 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   styleUrl: './infos.component.css',
 })
 export class InfosComponent {
-  id;
-  constructor(private activatedRoute: ActivatedRoute) {}
+  selectedCandidat: Candidat;
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private candSer: GestionCandidatsService
+  ) {}
 
   ngOnInit() {
     // Verison 1 avec snapshot
@@ -18,7 +24,13 @@ export class InfosComponent {
     //Version 2 avec observables
     this.activatedRoute.paramMap.subscribe({
       next: (p: ParamMap) => {
-        this.id = p.get('id');
+        this.selectedCandidat = this.candSer.getCandidatById(p.get('id'));
+        console.log(this.selectedCandidat);
+
+        if (!this.selectedCandidat) {
+          alert('Candidat introuvable !');
+          this.router.navigateByUrl('/');
+        }
       },
       // error : ,
       // complete : () {

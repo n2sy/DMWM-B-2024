@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FirstService } from './services/first.service';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { FirstService } from './services/first.service';
 })
 export class AppComponent {
   title = 'DMWM-B-2024';
+  obs$: Observable<Object[]>;
 
   traitementDuApp(msg) {
     alert(msg);

@@ -1,1 +1,12 @@
 <p>add works!</p>
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value, $event)">
+  <input ngModel name="prenom" type="text" class="form-control" />
+  <input ngModel name="nom" type="text" class="form-control" />
+  <input ngModel name="age" type="number" class="form-control" />
+  <input ngModel name="profession" type="text" class="form-control" />
+  <input type="file" class="form-control" />
+  <button>Valider</button>
+</form>
+
+<img [src]="cand?.avatar" alt="" />

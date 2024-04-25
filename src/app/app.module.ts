@@ -27,6 +27,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { NoImagePipe } from './pipes/no-image.pipe';
 import { ShortPipe } from './pipes/short.pipe';
 import { RecruterComponent } from './recruter/recruter.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { RecruterComponent } from './recruter/recruter.component';
     AddComponent,
     EditComponent,
     NotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

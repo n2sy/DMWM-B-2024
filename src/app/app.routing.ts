@@ -10,12 +10,40 @@ import { MsWordComponent } from './ms-word/ms-word.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 // Version 2 with children
+// const myRoutes: Routes = [
+//   { path: '', component: AccueilComponent },
+//   {
+//     path: 'cv',
+//     component: CvComponent,
+//     children: [
+//       { path: 'add', component: AddComponent },
+//       {
+//         path: ':id',
+//         children: [
+//           { path: '', component: InfosComponent },
+//           { path: 'edit', component: EditComponent },
+//         ],
+//       },
+//     ],
+//   },
+//   { path: 'ms-word', component: MsWordComponent },
+//   { path: 'login', component: LoginComponent },
+//   { path: 'accounts', component: HomeAccountComponent },
+//   {
+//     path: 'servers',
+//     loadChildren: () => import('./sub/sub.module').then((m) => m.SubModule),
+//   },
+//   { path: 'manage-servers', component: ManageServersComponent },
+//   { path: 'not-found', component: NotFoundComponent },
+//   { path: '**', redirectTo: 'not-found' },
+// ];
+// Version 1 with children
 const myRoutes: Routes = [
   { path: '', component: AccueilComponent },
   {
     path: 'cv',
-    component: CvComponent,
     children: [
+      { path: '', component: CvComponent },
       { path: 'add', component: AddComponent },
       {
         path: ':id',
@@ -28,37 +56,10 @@ const myRoutes: Routes = [
   },
   { path: 'ms-word', component: MsWordComponent },
   { path: 'accounts', component: HomeAccountComponent },
-  {
-    path: 'servers',
-    loadChildren: () => import('./sub/sub.module').then((m) => m.SubModule),
-  },
-  { path: 'manage-servers', component: ManageServersComponent },
+  { path: 'servers', component: ManageServersComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
 ];
-// Version 1 with children
-// const myRoutes: Routes = [
-//   { path: '', component: AccueilComponent },
-//   {
-//     path: 'cv',
-//     children: [
-//       { path: '', component: CvComponent },
-//       { path: 'add', component: AddComponent },
-//       {
-//         path: ':id',
-//         children: [
-//           { path: '', component: InfosComponent },
-//           { path: 'edit', component: EditComponent },
-//         ],
-//       },
-//     ],
-//   },
-//   { path: 'ms-word', component: MsWordComponent },
-//   { path: 'accounts', component: HomeAccountComponent },
-//   { path: 'servers', component: ManageServersComponent },
-//   { path: 'not-found', component: NotFoundComponent },
-//   { path: '**', redirectTo: 'not-found' },
-// ];
 
 // Version without Children
 // const myRoutes: Routes = [

@@ -1,0 +1,94 @@
+<form #f="ngForm" (ngSubmit)="submitHandler(f)">
+  <label for="log">Login</label>
+  <input
+    #inpLogin="ngModel"
+    ngModel
+    required
+    email
+    name="login"
+    id="log"
+    type="text"
+    class="form-control"
+  />
+  @if (inpLogin.invalid && inpLogin.touched) {
+  <div class="alert alert-danger">Veuillez saisir une adresse mail valide</div>
+  }
+
+  <label for="">Mot de passe</label>
+  <input
+    minlength="5"
+    ngModel
+    name="password"
+    type="text"
+    class="form-control"
+  />
+
+  <label for="">Section</label>
+  <select
+    name="MySection"
+    ngModel
+    [ngModel]="defaultSection"
+    class="form-control"
+  >
+    @for (section of allSections; track $index) {
+    <option [value]="section">{{ section }}</option>
+    }
+  </select>
+  <br />
+  {{ defaultSection }}
+
+  <br />
+  <label for="">Commentaire</label>
+  <textarea
+    [(ngModel)]="myComment"
+    name="commentaire"
+    class="form-control"
+    cols="5"
+    rows="4"
+  ></textarea>
+
+  {{ myComment }}
+  <br />
+
+  <label for="">Gestion des erreurs</label>
+  <input
+    #exp="ngModel"
+    ngModel
+    name="erreurs"
+    required
+    minlength="5"
+    pattern="nidhal"
+    type="text"
+    class="form-control"
+  />
+  @if (exp.invalid) {
+  <div class="alert alert-danger">
+    @if (exp.errors['required']) {
+    <p>Ce champ est required</p>
+
+    } @if (exp.errors['minlength']) {
+    <p>Le nombre minimal de caractères est 5</p>
+
+    } @if (exp.errors['pattern']) {
+    <p>Le pattern est "nidhal"</p>
+
+    }
+  </div>
+
+  }
+
+  <pre>
+    {{ f.value | json }}
+  </pre>
+
+  <button type="submit" class="btn btn-primary">Se connecter</button>
+  <button type="button" (click)="generatePwd(f)" class="btn btn-warning">
+    Genrate Password
+  </button>
+  <button type="button" (click)="generatePwd2(f)" class="btn btn-info">
+    Genrate Password II
+  </button>
+  <button type="submit" (click)="onReset(f)" class="btn btn-danger">
+    Reset
+  </button>
+</form>

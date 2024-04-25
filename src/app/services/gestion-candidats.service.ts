@@ -16,6 +16,11 @@ export class GestionCandidatsService {
     return this.allCandidats.find((cand) => cand._id == id);
   }
 
+  deleteCandidat(id) {
+    let i = this.allCandidats.findIndex((cand) => cand._id == id);
+    this.allCandidats.splice(i, 1);
+  }
+
   getAllCandidats() {
     // this.allCandidats = this.allCandidats.map((cand) => {
     //   cand.avatar = `https://api.dicebear.com/8.x/lorelei/svg?seed=${cand.prenom}`;
@@ -29,8 +34,22 @@ export class GestionCandidatsService {
     return this.allCandidats;
   }
 
-  addNewCandidat() {
-    this.allCandidats.push(new Candidat(3, 'NEW', 'CANDIDAT', 30, 'designer'));
+  updateCandidat(uCand) {
+    console.log(uCand);
+
+    let i = this.allCandidats.findIndex((cand) => cand._id == uCand._id);
+    console.log(i);
+
+    this.allCandidats[i] = uCand;
+    console.log(this.allCandidats);
+  }
+
+  addNewCandidat(newCand) {
+    newCand['_id'] = this.allCandidats[this.allCandidats.length - 1]._id + 1;
+    delete newCand.age;
+    console.log(newCand);
+
+    this.allCandidats.push(newCand);
   }
   constructor() {}
 }

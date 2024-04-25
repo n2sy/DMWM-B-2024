@@ -28,6 +28,7 @@ import { NoImagePipe } from './pipes/no-image.pipe';
 import { ShortPipe } from './pipes/short.pipe';
 import { RecruterComponent } from './recruter/recruter.component';
 import { LoginComponent } from './login/login.component';
+import { ExpObsComponent } from './exp-obs/exp-obs.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { LoginComponent } from './login/login.component';
     EditComponent,
     NotFoundComponent,
     LoginComponent,
+    ExpObsComponent,
   ],
   imports: [
     BrowserModule,

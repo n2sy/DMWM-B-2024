@@ -1,0 +1,20 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <label for="">Prénom</label>
+  <input ngModel name="prenom" required type="text" class="form-control" />
+  <label for="">Nom</label>
+  <input ngModel name="nom" required type="text" class="form-control" />
+  <label for="">Age</label>
+  <input
+    ngModel
+    name="age"
+    min="20"
+    max="40"
+    type="number"
+    class="form-control"
+  />
+  <label for="">Profession</label>
+  <input ngModel name="profession" type="text" class="form-control" />
+  <label for="">Avatar</label>
+  <input ngModel name="avatar" type="text" class="form-control" />
+  <button class="btn btn-primary">Ajouter</button>
+</form>

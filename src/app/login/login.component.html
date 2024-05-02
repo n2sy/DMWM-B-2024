@@ -1,3 +1,8 @@
+@if (showError) {
+<div class="alert alert-danger">Login et/ou mot de passe invalide(s)</div>
+
+}
+
 <form #f="ngForm" (ngSubmit)="submitHandler(f)">
   <label for="log">Login</label>
   <input
@@ -5,7 +10,7 @@
     ngModel
     required
     email
-    name="login"
+    name="email"
     id="log"
     type="text"
     class="form-control"
@@ -22,7 +27,7 @@
     type="text"
     class="form-control"
   />
-
+  <!-- 
   <label for="">Section</label>
   <select
     name="MySection"
@@ -79,10 +84,10 @@
 
   <pre>
     {{ f.value | json }}
-  </pre>
+  </pre> -->
 
   <button type="submit" class="btn btn-primary">Se connecter</button>
-  <button type="button" (click)="generatePwd(f)" class="btn btn-warning">
+  <!-- <button type="button" (click)="generatePwd(f)" class="btn btn-warning">
     Genrate Password
   </button>
   <button type="button" (click)="generatePwd2(f)" class="btn btn-info">
@@ -90,5 +95,5 @@
   </button>
   <button type="submit" (click)="onReset(f)" class="btn btn-danger">
     Reset
-  </button>
+  </button> -->
 </form>

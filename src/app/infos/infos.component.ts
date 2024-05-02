@@ -24,13 +24,15 @@ export class InfosComponent {
     //Version 2 avec observables
     this.activatedRoute.paramMap.subscribe({
       next: (p: ParamMap) => {
-        this.selectedCandidat = this.candSer.getCandidatById(p.get('id'));
-        console.log(this.selectedCandidat);
-
-        if (!this.selectedCandidat) {
-          alert('Candidat introuvable !');
-          this.router.navigateByUrl('/');
-        }
+        this.candSer.getCandidatByIdAPI(p.get('id')).subscribe({
+          next: (response: Candidat) => {
+            this.selectedCandidat = response;
+          },
+          error: (err) => {
+            alert('Candidat introuvable !');
+            this.router.navigateByUrl('/not-found');
+          },
+        });
       },
       // error : ,
       // complete : () {
@@ -41,8 +43,15 @@ export class InfosComponent {
 
   onDelete() {
     if (confirm('Etes-vous sur de vouloir supprimer ce candidat ?')) {
-      this.candSer.deleteCandidat(this.selectedCandidat._id);
-      this.router.navigateByUrl('/cv');
+      this.candSer.deleteCandidatAPI(this.selectedCandidat._id).subscribe({
+        next: (response) => {
+          alert(response['message']);
+          this.router.navigateByUrl('/cv');
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
     }
   }
 }

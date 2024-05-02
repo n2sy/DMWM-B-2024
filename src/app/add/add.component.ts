@@ -15,7 +15,11 @@ export class AddComponent {
   onSubmit(newCandidat) {
     console.log(newCandidat);
 
-    this.candSer.addNewCandidat(newCandidat);
-    this.router.navigateByUrl('/cv');
+    this.candSer.addNewCandidatAPI(newCandidat).subscribe({
+      next: (response) => {
+        alert(response['message']);
+        this.router.navigateByUrl('/cv');
+      },
+    });
   }
 }

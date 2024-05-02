@@ -1,10 +1,15 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Candidat } from '../models/candidat';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GestionCandidatsService {
+  link = 'http://localhost:3000/cv/persons';
+  constructor(private http: HttpClient) {}
+
   private allCandidats: Candidat[] = [
     new Candidat(1, 'Bart', 'Simpson', 23, 'ingénieur'),
     new Candidat(2, 'Homer', 'Simpson', 55, 'directeur'),
@@ -15,10 +20,21 @@ export class GestionCandidatsService {
   getCandidatById(id) {
     return this.allCandidats.find((cand) => cand._id == id);
   }
+  getCandidatByIdAPI(id): Observable<Candidat> {
+    return this.http.get<Candidat>(`${this.link}/${id}`);
+    // return this.http.get(this.link + "/" + id);
+  }
 
   deleteCandidat(id) {
     let i = this.allCandidats.findIndex((cand) => cand._id == id);
     this.allCandidats.splice(i, 1);
+  }
+  deleteCandidatAPI(id) {
+    return this.http.delete(`${this.link}/${id}`);
+  }
+
+  getAllCandidatsAPI(): Observable<Candidat[]> {
+    return this.http.get<Candidat[]>(this.link);
   }
 
   getAllCandidats() {
@@ -43,6 +59,9 @@ export class GestionCandidatsService {
     this.allCandidats[i] = uCand;
     console.log(this.allCandidats);
   }
+  updateCandidatAPI(uCand) {
+    return this.http.put(`${this.link}/free/${uCand._id}`, uCand);
+  }
 
   addNewCandidat(newCand) {
     newCand['_id'] = this.allCandidats[this.allCandidats.length - 1]._id + 1;
@@ -51,5 +70,7 @@ export class GestionCandidatsService {
 
     this.allCandidats.push(newCand);
   }
-  constructor() {}
+  addNewCandidatAPI(newCand) {
+    return this.http.post(`${this.link}/free`, newCand);
+  }
 }

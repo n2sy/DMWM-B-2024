@@ -11,7 +11,7 @@ import { GestionRecruesService } from '../services/gestion-recrues.service';
   providers: [FirstService, GestionRecruesService],
 })
 export class CvComponent {
-  tabCandidats: Candidat[] = [];
+  // tabCandidats: Candidat[] = [];
   selectedCandidat: Candidat;
   firstSer = inject(FirstService);
   candSer = inject(GestionCandidatsService);
@@ -20,7 +20,7 @@ export class CvComponent {
 
   ngOnInit() {
     this.firstSer.afficherInfos();
-    this.tabCandidats = this.candSer.getAllCandidats();
+    // this.tabCandidats = this.candSer.getAllCandidats();
   }
 
   showListe() {

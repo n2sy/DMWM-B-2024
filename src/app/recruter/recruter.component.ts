@@ -9,9 +9,9 @@ import { GestionRecruesService } from '../services/gestion-recrues.service';
 })
 export class RecruterComponent {
   tabRecrues: Candidat[] = [];
-  constructor(private recrueSer: GestionRecruesService) {}
+  constructor(public recrueSer: GestionRecruesService) {}
 
   ngOnInit() {
-    this.tabRecrues = this.recrueSer.getAllRecrues();
+    this.recrueSer.getAllRecrues();
   }
 }

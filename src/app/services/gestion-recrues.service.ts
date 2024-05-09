@@ -1,19 +1,39 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Candidat } from '../models/candidat';
 
-// @Injectable({
-//   providedIn: 'root',
-// })
+@Injectable({
+  providedIn: 'root',
+})
 export class GestionRecruesService {
-  private allRecrues: Candidat[] = [];
+  link = 'http://localhost:3000/cv';
+
+  allRecrues: Candidat[] = [];
 
   getAllRecrues() {
-    return this.allRecrues;
+    this.http.get(`${this.link}/recrues`).subscribe({
+      next: (response: Candidat[]) => {
+        console.log(response);
+
+        this.allRecrues = response;
+      },
+    });
   }
 
   addRecrue(newRecrue) {
-    if (this.allRecrues.indexOf(newRecrue) == -1)
-      this.allRecrues.push(newRecrue);
-    else alert(`${newRecrue.prenom} ${newRecrue.nom} a déjà été recrutée`);
+    this.http
+      .patch(`${this.link}/candidats/recruter/${newRecrue._id}`, {
+        recrue: true,
+      })
+      .subscribe({
+        next: (response) => {
+          alert(response['message']);
+          this.allRecrues.push(response['result']);
+        },
+      });
+    // if (this.allRecrues.indexOf(newRecrue) == -1)
+    //   this.allRecrues.push(newRecrue);
+    // else alert(`${newRecrue.prenom} ${newRecrue.nom} a déjà été recrutée`);
   }
-  constructor() {}
+  constructor(private http: HttpClient) {}
 }

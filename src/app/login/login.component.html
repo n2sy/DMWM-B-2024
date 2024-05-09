@@ -85,8 +85,30 @@
   <pre>
     {{ f.value | json }}
   </pre> -->
+  <br />
+  <div class="col-md-4 offset-4">
+    @if (isRegister) {
+    <button type="submit" class="btn btn-info btn-nidhal">Register</button>
+    <button
+      (click)="toggleIsRegister()"
+      type="submit"
+      class="btn btn-danger btn-nidhal"
+    >
+      Switch to Login
+    </button>
 
-  <button type="submit" class="btn btn-primary">Se connecter</button>
+    } @else {
+    <button type="submit" class="btn btn-primary btn-nidhal">Login</button>
+    <button
+      (click)="toggleIsRegister()"
+      type="submit"
+      class="btn btn-warning btn-nidhal"
+    >
+      Switch to Register
+    </button>
+
+    }
+  </div>
   <!-- <button type="button" (click)="generatePwd(f)" class="btn btn-warning">
     Genrate Password
   </button>

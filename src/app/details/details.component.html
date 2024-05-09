@@ -5,12 +5,7 @@
         <img src="../../assets/rotating_card_thumb2.png" />
       </div>
       <div class="user">
-        <img
-          class="img-circle"
-          src="https://api.dicebear.com/8.x/lorelei/svg?seed={{
-            selCand.prenom
-          }}"
-        />
+        <img class="img-circle" [src]="selCand.avatar" />
       </div>
       <div class="content">
         <div class="main">
@@ -58,7 +53,11 @@
       </div>
       <div class="footer">
         <div class="social-links text-center">
-          <button (click)="addNewRecrue()" class="btn btn-success">
+          <button
+            [disabled]="selCand.recrue"
+            (click)="addNewRecrue()"
+            class="btn btn-success"
+          >
             Recruter
           </button>
           <a [routerLink]="[selCand._id]" class="btn btn-info">Details</a>

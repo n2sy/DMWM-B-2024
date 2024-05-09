@@ -1,8 +1,8 @@
-@if (tabRecrues?.length) {
+@if (recrueSer.allRecrues?.length) {
 <div>
   <h3>Liste des recrues</h3>
   <ol class="list-group-item">
-    @for (recrue of tabRecrues; track $index) {
+    @for (recrue of recrueSer.allRecrues; track $index) {
     <app-item [oneCandidat]="recrue"></app-item>
     }
   </ol>

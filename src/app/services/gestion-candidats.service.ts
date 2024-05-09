@@ -7,7 +7,7 @@ import { Candidat } from '../models/candidat';
   providedIn: 'root',
 })
 export class GestionCandidatsService {
-  link = 'http://localhost:3000/cv/persons';
+  link = 'http://localhost:3000/cv/candidats';
   constructor(private http: HttpClient) {}
 
   private allCandidats: Candidat[] = [

@@ -1,11 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import {
-  HttpClientModule,
-  provideHttpClient,
-  withInterceptors,
-} from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AddAccountComponent } from './accounts/add-account/add-account.component';
 import { HomeAccountComponent } from './accounts/home-account/home-account.component';
@@ -22,6 +18,7 @@ import { DetailsComponent } from './details/details.component';
 import { DirectComponent } from './direct/direct.component';
 import { EditComponent } from './edit/edit.component';
 import { ExpObsComponent } from './exp-obs/exp-obs.component';
+import { FilterComponent } from './filter/filter.component';
 import { FirstComponent } from './first/first.component';
 import { InfosComponent } from './infos/infos.component';
 import { ItemComponent } from './item/item.component';
@@ -64,13 +61,14 @@ import { RecruterComponent } from './recruter/recruter.component';
     NotFoundComponent,
     LoginComponent,
     ExpObsComponent,
+    FilterComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     DMWM_ROUTING,
     // SubModule,
-    HttpClientModule,
+    //    HttpClientModule,
   ],
   providers: [provideHttpClient(withInterceptors([addtokenInterceptor]))],
   bootstrap: [AppComponent],

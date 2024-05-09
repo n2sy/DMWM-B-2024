@@ -1,0 +1,12 @@
+<input
+  #nom
+  (input)="searchByName(nom.value)"
+  type="text"
+  class="form-control"
+/>
+<ol class="list-group">
+  @for (cand of tabCands; track $index) {
+  <app-item [routerLink]="['/cv', cand._id]" [oneCandidat]="cand"></app-item>
+
+  }
+</ol>

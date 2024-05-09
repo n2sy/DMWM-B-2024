@@ -3,7 +3,7 @@ import { HttpHeaders, HttpInterceptorFn } from '@angular/common/http';
 export const addtokenInterceptor: HttpInterceptorFn = (req, next) => {
   console.log(req);
   if (req.method == 'GET') {
-    console.log('Requet GEt', req);
+    // console.log('Requet GEt', req);
 
     return next(req);
   } else {
@@ -12,7 +12,7 @@ export const addtokenInterceptor: HttpInterceptorFn = (req, next) => {
       let cloneReq = req.clone({
         headers: new HttpHeaders().set('Authorization', `bearer ${token}`),
       });
-      console.log('CloneReq', cloneReq);
+      //  console.log('CloneReq', cloneReq);
 
       return next(cloneReq);
     }
